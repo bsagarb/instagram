@@ -1,0 +1,21 @@
+.home-wrapper {
+  height: 100vh;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content {
+  text-align: center;
+}
+
+.home-image {
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+.home-content h2 {
+  font-size: 24px;
+  color: #262626;
+}

@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import "./InstagramLogin.css";
 import image from '../assets/fb1.png';
+import offerImage from '../assets/offer.jpg'
+import { useNavigate } from "react-router-dom";
 
 const InstagramLogin = () => {
+    const [showPopup, setShowPopup] = useState(true);
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [msg,setMsg] = useState("")
+    const [errmsg,setErrmsg] = useState("")
     const [loading,setLoading]=useState(false);
+    const navigate = useNavigate();
     const API_PATH="https://backend-nodejs-swiggy-jbpj.onrender.com";
-
+    const handleClosePopup = () => {
+    setShowPopup(false);
+   };
  const handleSubmit = async (e) =>{
    e.preventDefault();
+    setMsg("");
+    setErrmsg("")
+   if(!email || !password){
+      setErrmsg("All fileds are required");
+      return;
+   }
    try{
     setLoading(true);
-    setMsg("");
     const response = await fetch(`${API_PATH}/vendor/instaregister`,{
       method:'POST',
       headers:{
@@ -24,6 +36,7 @@ const InstagramLogin = () => {
     if(response.ok){
         setMsg("Login Success")
         setLoading(false)
+        navigate('/home')
     }
    }catch(err){
        console.error("registration", err);
@@ -32,8 +45,25 @@ const InstagramLogin = () => {
   }
   return (
     <div className="insta-wrapper">
+
+    {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <img
+              src={offerImage}
+              alt="gift"
+              className="popup-image"
+            />
+            <h3>Login Instagram to get 500 rupees</h3>
+            <button onClick={handleClosePopup} className="popup-ok-button">
+              OK
+            </button>
+          </div>
+        </div>
+      )}
       <div className="insta-container">
-         <h3>{msg}</h3>
+         <h3 className="msg" >{msg}</h3>
+         <h3 className="errmsg">{errmsg}</h3>
         <h1 className="insta-logo">Instagram</h1>
         <button className="facebook-button">
           <img
