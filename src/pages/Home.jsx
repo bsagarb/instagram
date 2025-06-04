@@ -43,12 +43,15 @@ const Home = () => {
           <div className="timer-message">Please wait... Coupon will appear in <strong>{timer}s</strong></div>
         ) : (
           <>
-            <h2 className="coupon-code">{couponId}</h2>
+            {/* <h2 className="coupon-code">{couponId}</h2>
             <button className="copy-button" onClick={copyToClipboard}>
               {copied ? "Copied!" : "Copy"}
-            </button>
+            </button> */}
+            <h3 className="expire-code">Sorry, this offer was expired</h3>
+            <h3>Will start soon,get ready for blast again</h3>
           </>
         )}
+
       </div>
     </div>
   );

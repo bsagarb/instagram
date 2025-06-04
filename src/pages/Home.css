@@ -77,3 +77,16 @@
   cursor: not-allowed;
 }
 
+.expire-code{
+   display: inline-block;
+  background-color: #1e1e1e; /* Dark gray background for the code */
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ff1e00; /* Neon-like text color */
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
