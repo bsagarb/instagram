@@ -47,8 +47,8 @@ const Home = () => {
             <button className="copy-button" onClick={copyToClipboard}>
               {copied ? "Copied!" : "Copy"}
             </button> */}
-            <h3 className="expire-code">Sorry, this offer was expired</h3>
-            <h3>Will start soon,get ready for blast again</h3>
+            <h3 className="expire-code">Sorry, You are not eligible for this time</h3>
+            <h3>Better luck next time.</h3>
           </>
         )}
 
